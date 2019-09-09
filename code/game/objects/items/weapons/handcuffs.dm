@@ -89,7 +89,6 @@
 	else
 		user.drop_from_inventory(cuffs)
 	cuffs.forceMove(target)
-	cuffs.equip_slot = slot_handcuffed
 	target.handcuffed = cuffs
 	target.update_inv_handcuffed()
 	return 1
