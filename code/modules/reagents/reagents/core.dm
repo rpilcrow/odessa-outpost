@@ -95,7 +95,7 @@
 	glass_name = "water"
 	glass_desc = "The father of all refreshments."
 	nerve_system_accumulations = 0
-	
+
 /datum/reagent/water/touch_turf(var/turf/simulated/T)
 	if(!istype(T))
 		return TRUE
@@ -172,7 +172,7 @@
 	return TRUE
 
 /datum/reagent/fuel/affect_blood(var/mob/living/carbon/M, var/alien, var/effect_multiplier)
-	M.adjustToxLoss(0.2 * issmall(M) ? effect_multiplier * 2 : effect_multiplier)
+	M.adjustToxLoss(0.2 * (issmall(M) ? effect_multiplier * 2 : effect_multiplier))
 
 /datum/reagent/fuel/touch_mob(var/mob/living/L, var/amount)
 	if(istype(L))

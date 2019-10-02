@@ -160,7 +160,6 @@ GLOBAL_LIST_INIT(unique_items, list(/obj/item/weapon/tool/shovel/ravedigger = 4,
 				/obj/item/device/makeshift_electrolyser = 1,
 				/obj/item/device/makeshift_centrifuge = 1,
 				/obj/item/robot_parts/robot_component/jetpack = 0.75,
-				/obj/item/weapon/tool/shovel/ravedigger = 1,
 				/obj/item/weapon/tool/weapon/handaxe = 2,
 				/obj/item/weapon/tool/saw/machete = 2))
 
@@ -177,10 +176,7 @@ GLOBAL_LIST_INIT(unique_items, list(/obj/item/weapon/tool/shovel/ravedigger = 4,
 				/obj/item/weapon/tool/pickaxe/diamonddrill = 2,
 				/obj/item/weapon/tool/tape_roll/fiber = 2,
 				/obj/item/weapon/tool/tape_roll/flextape = 1,
-				/obj/item/weapon/material/twohanded/fireaxe = 1,
-				/obj/item/weapon/tool/shovel/ravedigger = 1,
-				/obj/item/weapon/tool/shovel/robust = 0.5,
-				/obj/item/weapon/tool/shovel/spade/maingauche = 0.5))
+				/obj/item/weapon/material/twohanded/fireaxe = 1))
 
 /obj/random/knife/item_to_spawn()
 	return pickweight(list(/obj/item/weapon/material/butterfly = 1,
@@ -189,8 +185,7 @@ GLOBAL_LIST_INIT(unique_items, list(/obj/item/weapon/tool/shovel/ravedigger = 4,
 				/obj/item/weapon/material/knife/boot = 0.5,
 				/obj/item/weapon/material/knife/hook = 2,
 				/obj/item/weapon/material/knife/ritual = 0.5,
-				/obj/item/weapon/material/knife/butch = 2,
-				/obj/item/weapon/tool/shovel/spade/maingauche = 0.5))
+				/obj/item/weapon/material/knife/butch = 2))
 
 
 /obj/random/lowkeyrandom/item_to_spawn()
@@ -318,12 +313,6 @@ GLOBAL_LIST_INIT(unique_items, list(/obj/item/weapon/tool/shovel/ravedigger = 4,
 				/obj/item/weapon/gun/projectile/revolver/detective = 1,
 				/obj/item/clothing/accessory/badge/marshal = 0.1, //Antag item
 				/obj/item/stash_spawner = 12,
-				/obj/item/weapon/tool/shovel/ravedigger = 2,
-				/obj/item/weapon/tool/shovel/robust = 1,
-				/obj/item/weapon/tool/shovel/spade/maingauche = 1,
-				/obj/item/weapon/tool/weapon/handaxe = 1,
-				/obj/item/weapon/tool/weapon/sword = 0.1,
-				/obj/item/weapon/tool/saw/machete = 0.5,
 				/obj/item/weapon/gun/launcher/crossbow = 0.5))
 
 /obj/random/gun_normal/item_to_spawn()

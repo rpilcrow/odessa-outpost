@@ -15,7 +15,7 @@
 
 /obj/item/heartcontainer
 	name = "heart container"
-	desc = ""
+	desc = "A vessel of pure, lifegiving energy."
 	icon = 'icons/obj/dungeon_item.dmi'
 	icon_state = "heartcontainer"
 	item_state = ""
@@ -269,3 +269,44 @@
 	attack_verb = list("attacked", "slashed", "sawed", "cut")
 	tool_qualities = list(QUALITY_SAWING = 25, QUALITY_CUTTING = 20, QUALITY_WIRE_CUTTING = 20, QUALITY_PRYING = 20, QUALITY_DIGGING = 10)
 	embed_mult = 0.5
+
+
+
+////////////////////////////////////////
+////////////////loot egg////////////////
+
+/obj/item/loot_egg
+	name = "strange orb"
+	desc = "An unusual orb of some form, covered in a sinewy substance. It is a vessel of potential, and may be opened to reveal something unique."
+	icon = 'icons/obj/dungeon_item.dmi'
+	icon_state = "egg"
+	item_state = ""
+	w_class = ITEM_SIZE_SMALL
+	force = 0
+	matter = list(MATERIAL_DIAMOND = 1, MATERIAL_GOLD = 5, MATERIAL_PLASTEEL = 10)
+	matter_reagents = list("tricordrazine" = 100)
+
+/obj/item/loot_egg/examine(mob/user)
+	..()
+	if(isemptylist(GLOB.unique_items))
+		to_chat(user,"Breakfast floats inside.")
+	else
+		to_chat(user,"An object floats inside, its form shifting and unclear through the yellow surface.")
+
+/obj/item/loot_egg/attack_self(mob/user)
+	if(ishuman(user))
+		var/mob/living/L = user
+		var/spawned_item
+		if(isemptylist(GLOB.unique_items))
+			spawned_item = /obj/item/weapon/reagent_containers/food/snacks/breakfast
+		else
+			spawned_item = pickweight_n_take(GLOB.unique_items)
+
+		spawned_item = new spawned_item()
+		if(spawned_item)
+			L.visible_message(SPAN_NOTICE("[user] opens \the [src] and finds a [spawned_item]."),SPAN_NOTICE("You open \the [src] and find a [spawned_item]."))
+			playsound(L, 'sound/lttp\item get 1.wav', 66, 1)
+			L.remove_from_mob(src)
+			loc = null
+			L.put_in_hands(spawned_item)
+			qdel(src)

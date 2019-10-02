@@ -6,8 +6,8 @@
 	description = "All the vitamins, minerals, and carbohydrates the body needs in pure form."
 	taste_mult = 4
 	reagent_state = SOLID
-	metabolism = REM * 5
-	var/nutriment_factor = 30 // Per unit
+	metabolism = REM * 2
+	var/nutriment_factor = 12 // Per metabolism tick
 	var/regen_factor = 0.8 //Used for simple animal health regeneration
 	var/injectable = 0
 	color = "#664330"
@@ -36,13 +36,13 @@
 	if(!injectable)
 		M.adjustToxLoss(0.1 * effect_multiplier)
 		return
-	affect_ingest(M, alien, effect_multiplier)
+	affect_ingest(M, alien, effect_multiplier * 1.2)
 
 /datum/reagent/nutriment/affect_ingest(var/mob/living/carbon/M, var/alien, var/effect_multiplier)
 	// Small bodymass, more effect from lower volume.
-	M.heal_organ_damage(0.5 * issmall(M) ? effect_multiplier * 2 : effect_multiplier, 0)
-	M.adjustNutrition(nutriment_factor * issmall(M) ? effect_multiplier * 2 : effect_multiplier) // For hunger and fatness
-	M.add_chemical_effect(CE_BLOODRESTORE, 0.4 * issmall(M) ? effect_multiplier * 2 : effect_multiplier)
+//	M.heal_organ_damage(0.5 * issmall(M) ? effect_multiplier * 2 : effect_multiplier, 0)
+	M.adjustNutrition(nutriment_factor * (issmall(M) ? effect_multiplier * 2 : effect_multiplier)) // For hunger and fatness
+	M.add_chemical_effect(CE_BLOODRESTORE, 0.1 * (issmall(M) ? effect_multiplier * 2 : effect_multiplier))
 
 /datum/reagent/nutriment/glucose
 	name = "Glucose"
@@ -69,7 +69,7 @@
 	id = "honey"
 	description = "A golden yellow syrup, loaded with sugary sweetness."
 	taste_description = "sweetness"
-	nutriment_factor = 10
+	nutriment_factor = 4
 	color = "#FFFF00"
 
 /datum/reagent/nutriment/flour
@@ -78,7 +78,7 @@
 	description = "This is what you rub all over yourself to pretend to be a ghost."
 	taste_description = "chalky wheat"
 	reagent_state = SOLID
-	nutriment_factor = 1
+	nutriment_factor = 0.4
 	color = "#FFFFFF"
 
 /datum/reagent/nutriment/flour/touch_turf(var/turf/simulated/T)
@@ -93,7 +93,7 @@
 	taste_description = "bitterness"
 	taste_mult = 1.3
 	reagent_state = SOLID
-	nutriment_factor = 5
+	nutriment_factor = 2
 	color = "#302000"
 
 /datum/reagent/nutriment/soysauce
@@ -103,7 +103,7 @@
 	taste_description = "umami"
 	taste_mult = 1.1
 	reagent_state = LIQUID
-	nutriment_factor = 2
+	nutriment_factor = 0.8
 	color = "#792300"
 
 /datum/reagent/nutriment/ketchup
@@ -112,7 +112,7 @@
 	description = "Ketchup, catsup, whatever. It's tomato paste."
 	taste_description = "ketchup"
 	reagent_state = LIQUID
-	nutriment_factor = 5
+	nutriment_factor = 2
 	color = "#731008"
 
 /datum/reagent/nutriment/rice
@@ -122,7 +122,7 @@
 	taste_description = "rice"
 	taste_mult = 0.4
 	reagent_state = SOLID
-	nutriment_factor = 1
+	nutriment_factor = 0.4
 	color = "#FFFFFF"
 
 /datum/reagent/nutriment/cherryjelly
@@ -132,7 +132,7 @@
 	taste_description = "cherry"
 	taste_mult = 1.3
 	reagent_state = LIQUID
-	nutriment_factor = 1
+	nutriment_factor = 0.4
 	color = "#801E28"
 
 /datum/reagent/nutriment/cornoil
@@ -142,7 +142,7 @@
 	taste_description = "slime"
 	taste_mult = 0.1
 	reagent_state = LIQUID
-	nutriment_factor = 20
+	nutriment_factor = 8
 	color = "#302000"
 
 /datum/reagent/nutriment/cornoil/touch_turf(var/turf/simulated/T)
@@ -168,7 +168,7 @@
 	taste_description = "vomit"
 	taste_mult = 2
 	reagent_state = LIQUID
-	nutriment_factor = 2
+	nutriment_factor = 0.8
 	color = "#899613"
 
 /datum/reagent/nutriment/sprinkles
@@ -176,7 +176,7 @@
 	id = "sprinkles"
 	description = "Multi-colored little bits of sugar, commonly found on donuts. Loved by cops."
 	taste_description = "childhood whimsy"
-	nutriment_factor = 1
+	nutriment_factor = 0.4
 	color = "#FF00FF"
 
 /datum/reagent/nutriment/mint
@@ -374,7 +374,7 @@
 	return
 
 /datum/reagent/drink/affect_ingest(var/mob/living/carbon/M, var/alien, var/effect_multiplier)
-	M.nutrition += nutrition * effect_multiplier
+	M.adjustNutrition(nutrition * effect_multiplier)
 	M.dizziness = max(0, M.dizziness + adj_dizzy)
 	M.drowsyness = max(0, M.drowsyness + adj_drowsy)
 	M.sleeping = max(0, M.sleeping + adj_sleepy)

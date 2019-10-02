@@ -6,7 +6,7 @@
 	display_name = "MELEE: Stun Baton"
 	path = /obj/item/weapon/melee/baton
 	sort_category = "Weapons"
-	cost = 2
+	cost = 3
 
 //	allowed_roles //Roles that can spawn with this item.
 
@@ -16,12 +16,22 @@
 /datum/gear/weapons/circsaw
 	display_name = "MELEE (TOOL): Circular Saw"
 	path = /obj/item/weapon/tool/saw/circular
+/datum/gear/weapons/shovel
+	display_name = "MELEE (TOOL): Familiar Shovel"
+	path = /obj/item/weapon/tool/shovel/familiar
+/datum/gear/weapons/handaxe
+	display_name = "MELEE (TOOL): Hand Axe"
+	path = /obj/item/weapon/tool/weapon/handaxe
+/datum/gear/weapons/pick
+	display_name = "MELEE (TOOL): Pickaxe"
+	path = /obj/item/weapon/tool/pickaxe
+
 /datum/gear/weapons/bbat
 	display_name = "MELEE: Baseball Bat"
 	path = /obj/item/weapon/material/twohanded/baseballbat
-/datum/gear/weapons/gspear
-	display_name = "MELEE: Glass Spear"
-	path = /obj/item/weapon/material/twohanded/spear
+///datum/gear/weapons/gspear
+//	display_name = "MELEE: Glass Spear"
+//	path = /obj/item/weapon/material/twohanded/spear
 /datum/gear/weapons/butterfly
 	display_name = "MELEE: Butterfly Knife"
 	path = /obj/item/weapon/material/butterfly
@@ -34,19 +44,11 @@
 /datum/gear/weapons/tacknife
 	display_name = "MELEE: Tactical Knife"
 	path = /obj/item/weapon/material/hatchet/tacknife
-/datum/gear/weapons/pick
-	display_name = "MELEE (TOOL): Pickaxe "
-	path = /obj/item/weapon/tool/pickaxe
+
 /datum/gear/weapons/soap
 	display_name = "MELEE: Soap"
 	path = /obj/item/weapon/soap
 //	flags = GEAR_HAS_TYPE_SELECTION
-/datum/gear/weapons/shovel
-	display_name = "MELEE (TOOL): Familiar Shovel"
-	path = /obj/item/weapon/tool/shovel/familiar
-/datum/gear/weapons/handaxe
-	display_name = "MELEE (TOOL): Hand Axe"
-	path = /obj/item/weapon/tool/weapon/handaxe
 
 
 
@@ -54,7 +56,7 @@
 	display_name = "PISTOL: FS HG .32 \"Giskard\""
 	path = /obj/item/weapon/gun/projectile/giskard
 	sort_category = "Weapons"
-	cost = 5
+	cost = 6
 
 /datum/gear/guns/mk58
 	display_name = "PISTOL: NT HG .45 \"Mk58\""
@@ -73,7 +75,7 @@
 /datum/gear/guns/molly
 	display_name = "PISTOL: FS MP 9x19 \"Molly\""
 	path = /obj/item/weapon/gun/projectile/automatic/IH_machinepistol
-	cost = 6
+	cost = 10
 
 /datum/gear/guns/havelock
 	display_name = "REVOLVER: FS REV .38 \"Havelock\""
@@ -82,11 +84,11 @@
 /datum/gear/guns/miller
 	display_name = "REVOLVER: FS REV .357 \"Miller\""
 	path = /obj/item/weapon/gun/projectile/revolver
-	cost = 6
+	cost = 10
 /datum/gear/guns/deckard
 	display_name = "REVOLVER: FS REV .44 \"Deckard\""
 	path = /obj/item/weapon/gun/projectile/revolver/deckard
-	cost = 6
+	cost = 10
 
 /datum/gear/guns/doublebarrel
 	display_name = "SHOTGUN: Double-Barrel"
@@ -95,15 +97,15 @@
 /datum/gear/guns/pumpshot
 	display_name = "SHOTGUN: NT SG \"Regulator 1000\""
 	path = /obj/item/weapon/gun/projectile/shotgun/pump
-	cost = 6
+	cost = 10
 /datum/gear/guns/martin
 	display_name = "PISTOL (EN): FS PDW E \"Martin\""
 	path = /obj/item/weapon/gun/energy/gun/martin
-	cost = 6
+	cost = 10
 /datum/gear/guns/crossbow
 	display_name = "SNIPER: Powered Crossbow"
 	path = /obj/item/weapon/gun/launcher/crossbow
-	cost = 6
+	cost = 10
 
 
 
